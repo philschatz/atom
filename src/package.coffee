@@ -33,7 +33,7 @@ class Package
     {
       @path, @metadata, @packageManager, @config, @styleManager, @commandRegistry,
       @keymapManager, @devMode, @notificationManager, @grammarRegistry, @themeManager,
-      @menuManager, @contextMenuManager, @deserializerManager, @viewRegistry
+      @menuManager, @contextMenuManager, @deserializerManager, @viewRegistry, @specMode
     } = params
 
     @emitter = new Emitter
@@ -675,6 +675,8 @@ class Package
     incompatibleNativeModules
 
   handleError: (message, error) ->
+    if @specMode
+      throw error
     if error.filename and error.location and (error instanceof SyntaxError)
       location = "#{error.filename}:#{error.location.first_line + 1}:#{error.location.first_column + 1}"
       detail = "#{error.message} in #{location}"

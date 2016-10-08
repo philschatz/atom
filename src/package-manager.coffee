@@ -32,7 +32,7 @@ class PackageManager
     {
       configDirPath, @devMode, safeMode, @resourcePath, @config, @styleManager,
       @notificationManager, @keymapManager, @commandRegistry, @grammarRegistry,
-      @deserializerManager, @viewRegistry
+      @deserializerManager, @viewRegistry, @specMode
     } = params
 
     @emitter = new Emitter
@@ -390,7 +390,7 @@ class PackageManager
         path: packagePath, metadata, packageManager: this, @config, @styleManager,
         @commandRegistry, @keymapManager, @devMode, @notificationManager,
         @grammarRegistry, @themeManager, @menuManager, @contextMenuManager,
-        @deserializerManager, @viewRegistry
+        @deserializerManager, @viewRegistry, @specMode
       }
       if metadata.theme
         pack = new ThemePackage(options)
